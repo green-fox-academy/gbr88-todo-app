@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const args: string[] = process.argv;
 
 export let todoFunctions = {
 
@@ -29,6 +30,11 @@ export let todoFunctions = {
         console.log(i + 1 + '. - ' + contextLines[i]);
       }
     }
+  },
+
+  // write task from command line argument to the given file
+  writeTask(): void {
+    fs.appendFileSync('tasks.txt', '\n' + args[3], 'utf-8');
   }
 
 }
