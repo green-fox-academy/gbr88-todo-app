@@ -6,17 +6,28 @@ const args: string[] = process.argv;
 let todo = () => {
 
   if (args.length == 2) {
-    console.log('Command Line Todo application' + '\n' +
-      '=============================' + '\n' + '\n' +
-      'Command line arguments:' + '\n' +
-      '    -l   Lists all the tasks' + '\n' +
-      '    -a   Adds a new task' + '\n' +
-      '    -r   Removes an task' + '\n' +
-      '    -c   Completes an task');
+    printCommands();
+  } else if (args[3] = '-l') {
+    listAllTasks();
   }
   else {
     console.log('this is the error handling');
   }
+}
+
+let listAllTasks = () => {
+  let context: string = fs.readFileSync('tasks.txt', 'utf8');
+  console.log(context);
+}
+
+let printCommands = () => {
+  console.log('Command Line Todo application' + '\n' +
+    '=============================' + '\n' + '\n' +
+    'Command line arguments:' + '\n' +
+    '    -l   Lists all the tasks' + '\n' +
+    '    -a   Adds a new task' + '\n' +
+    '    -r   Removes an task' + '\n' +
+    '    -c   Completes an task');
 }
 
 todo();
