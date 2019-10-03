@@ -1,6 +1,6 @@
 'use strict';
 
-import { printCommands , listAllTasks } from './functions';
+import { todoFunctions } from './functions';
 
 const args: string[] = process.argv;
 
@@ -8,9 +8,9 @@ const args: string[] = process.argv;
 let todo = (): void => {
 
   if (args.length == 2) {
-    printCommands();
+    todoFunctions.printCommands();
   } else if (args[3] = '-l') {
-    listAllTasks();
+    todoFunctions.listAllTasks();
   }
   else {
     console.log('this is the error handling');
