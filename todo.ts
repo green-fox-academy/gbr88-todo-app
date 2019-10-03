@@ -1,9 +1,11 @@
 'use strict';
 
-const fs = require('fs');
+import { printCommands , listAllTasks } from './functions';
+
 const args: string[] = process.argv;
 
-let todo = () => {
+// main function calls helpers from outside package when parameters used
+let todo = (): void => {
 
   if (args.length == 2) {
     printCommands();
@@ -13,21 +15,6 @@ let todo = () => {
   else {
     console.log('this is the error handling');
   }
-}
-
-let listAllTasks = () => {
-  let context: string = fs.readFileSync('tasks.txt', 'utf8');
-  console.log(context);
-}
-
-let printCommands = () => {
-  console.log('Command Line Todo application' + '\n' +
-    '=============================' + '\n' + '\n' +
-    'Command line arguments:' + '\n' +
-    '    -l   Lists all the tasks' + '\n' +
-    '    -a   Adds a new task' + '\n' +
-    '    -r   Removes an task' + '\n' +
-    '    -c   Completes an task');
 }
 
 todo();
